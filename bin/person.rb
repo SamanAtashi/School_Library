@@ -1,3 +1,4 @@
+# rubocop:enable Naming/PredicateName
 class Person
   attr_reader :id
   attr_accessor :name, :age
@@ -19,3 +20,4 @@ class Person
     is_of_age? || @parent_permission
   end
 end
+# rubocop:disable Naming/PredicateName
