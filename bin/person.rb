@@ -1,10 +1,4 @@
-class Corrector
-  def correct_name(name)
-    name.length > 10 ? name = name[0..10] : name
-    name.capitalize!
-  end
-end
-
+require './corrector'
 class Person
   include Corrector
   attr_reader :id
