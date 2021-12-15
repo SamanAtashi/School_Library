@@ -1,4 +1,12 @@
+class Corrector
+  def correct_name(name)
+    name.length > 10 ? name = name[0..10] : name
+    name.capitalize!
+  end
+end
+
 class Person
+  include Corrector
   attr_reader :id
   attr_accessor :name, :age
 
@@ -7,6 +15,11 @@ class Person
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @corrector = Corrector.new
+  end
+
+  def validate_name
+    @name = @corrector.correct_name(@name)
   end
 
   private
