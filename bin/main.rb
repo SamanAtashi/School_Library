@@ -9,6 +9,7 @@ require_relative 'books'
 class App
   def initialize
     @books = []
+    @people = []
   end
 
   def clear
@@ -91,6 +92,21 @@ class App
     added_msg('Book')
     show_menu
   end
+
+  def list_all_people
+    if @people.empty?
+      clear
+      puts 'There are no people yet! Add a person.'
+      puts
+    else
+      clear
+      @people.map { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+      puts
+    end
+
+    show_menu
+  end
+
 end
 
 def main
