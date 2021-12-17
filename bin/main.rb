@@ -1,6 +1,6 @@
 require_relative 'corrector'
 # require_relative 'person.rb'
-# require_relative 'student.rb'
+require_relative 'student'
 # require_relative 'teacher.rb'
 # require_relative 'rentals.rb'
 require_relative 'books'
@@ -107,6 +107,49 @@ class App
     show_menu
   end
 
+  def create_a_person
+    clear
+    print 'Do you want to create a student (1) or teacher (2) ["exit" back to menu]: '
+
+    loop do
+      option = gets.chomp
+      case option
+      when '1'
+        create_a_student
+        break
+      when '2'
+        create_a_teacher
+        break
+      when 'exit'
+        clear
+        show_menu
+        break
+      else
+        clear
+        puts 'Invalid input. Kindly type 1 or 2 ["exit" back to menu].'
+        puts
+      end
+    end
+  end
+
+  def create_a_student
+    clear
+    print 'Age: '
+    age = gets.chomp.to_i
+
+    print 'Name: '
+    name = gets.chomp
+
+    print 'Has parent permission? [Y/N]: '
+    parent_permission = gets.chomp.downcase
+
+    new_student = Student.new(age , name ,parent_permission=="y" )
+
+    @people<<new_student
+
+    added_msg('Student')
+    show_menu
+  end
 end
 
 def main

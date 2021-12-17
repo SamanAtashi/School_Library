@@ -1,7 +1,6 @@
 require_relative 'corrector'
 
 class Person
-  include Corrector
   attr_reader :id
   attr_accessor :name, :age
 

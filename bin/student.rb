@@ -1,11 +1,11 @@
-require './person'
+require_relative 'person'
 
 class Student < Person
   attr_accessor :name
   attr_reader :classroom
 
-  def initialize(name)
-    super()
+  def initialize(age, name, permission)
+    super(age, parent_permission:permission)
     @name = name
   end
 
