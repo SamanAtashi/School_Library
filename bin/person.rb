@@ -1,4 +1,5 @@
-require './corrector'
+require_relative 'corrector'
+
 class Person
   include Corrector
   attr_reader :id
