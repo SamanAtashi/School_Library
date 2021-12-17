@@ -1,7 +1,7 @@
-# rubocop:enable Metrics/ClassLength
-# rubocop:enable Metrics/MethodLength
-# rubocop:enable Metrics/CyclomaticComplexity
-# rubocop:enable Style/IdenticalConditionalBranches
+# rubocop:disable Metrics/MethodLength
+# rubocop:disable Metrics/ClassLength
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Style/IdenticalConditionalBranches
 
 require_relative 'corrector'
 require_relative 'student'
@@ -78,7 +78,6 @@ class App
       @books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
       puts
     end
-
     show_menu
   end
 
@@ -86,13 +85,10 @@ class App
     clear
     print 'Title: '
     title = gets.chomp
-
     print 'Author: '
     author = gets.chomp
-
     new_book = Book.new(title, author)
     @books << new_book
-
     added_msg('Book')
     show_menu
   end
@@ -107,14 +103,12 @@ class App
       @people.map { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
       puts
     end
-
     show_menu
   end
 
   def create_a_person
     clear
     print 'Do you want to create a student (1) or teacher (2) ["exit" back to menu]: '
-
     loop do
       option = gets.chomp
       case option
@@ -140,17 +134,12 @@ class App
     clear
     print 'Age: '
     age = gets.chomp.to_i
-
     print 'Name: '
     name = gets.chomp
-
     print 'Has parent permission? [Y/N]: '
     parent_permission = gets.chomp.downcase
-
     new_student = Student.new(age, name, parent_permission == 'y')
-
     @people << new_student
-
     added_msg('Student')
     show_menu
   end
@@ -159,17 +148,12 @@ class App
     clear
     print 'Age: '
     age = gets.chomp.to_i
-
     print 'Name: '
     name = gets.chomp
-
     print 'Specialization: '
     specialization = gets.chomp
-
     new_teacher = Teacher.new(specialization, age, name)
-
     @people << new_teacher
-
     added_msg('Teacher')
     show_menu
   end
@@ -179,23 +163,17 @@ class App
     puts 'Select a book by number:'
     @books.each_with_index { |book, idx| puts "  #{idx}) Title: #{book.title}, Author: #{book.author}" }
     book_id = gets.chomp.to_i
-
     puts
-
     puts 'Select a person by number (not id):'
     @people.each_with_index do |person, idx|
       puts "  #{idx}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
     person_id = gets.chomp.to_i
-
     puts
-
     print 'Date: '
     date = gets.chomp.to_s
-
     new_rental = Rental.new(date, @people[person_id], @books[book_id])
     @rentals << new_rental
-
     added_msg('Rent')
     show_menu
   end
@@ -204,23 +182,18 @@ class App
     clear
     print 'ID of person: '
     id = gets.chomp.to_i
-
     puts
-
     puts 'Rentals:'
     @rentals.each do |rental|
       puts "  Date: #{rental.date}, Book '#{rental.book.title}' by #{rental.book.author}" if rental.person.id == id
     end
-
     puts
-
     puts 'Type "exit" to go back to menu.'
     loop do
       temp = gets.chomp.downcase
       next unless temp == 'exit'
 
       puts
-
       clear
       show_menu
       break
@@ -234,7 +207,7 @@ def main
 end
 
 main
-# rubocop:disable Metrics/ClassLength
-# rubocop:disable Metrics/MethodLength
-# rubocop:disable Metrics/CyclomaticComplexity
-# rubocop:disable Style/IdenticalConditionalBranches
+# rubocop:enable Metrics/MethodLength
+# rubocop:enable Metrics/ClassLength
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Style/IdenticalConditionalBranches
