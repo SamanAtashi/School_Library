@@ -1,3 +1,6 @@
+require_relative 'books'
+require_relative 'student'
+
 class Rental
   attr_reader :book, :person
   attr_accessor :date

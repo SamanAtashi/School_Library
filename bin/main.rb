@@ -2,12 +2,13 @@ require_relative 'corrector'
 # require_relative 'person.rb'
 require_relative 'student'
 require_relative 'teacher'
-# require_relative 'rentals.rb'
+require_relative 'rentals'
 require_relative 'books'
 # require_relative 'classroom.rb'
 
 class App
   def initialize
+    @rentals = []
     @books = []
     @people = []
   end
@@ -143,9 +144,9 @@ class App
     print 'Has parent permission? [Y/N]: '
     parent_permission = gets.chomp.downcase
 
-    new_student = Student.new(age , name ,parent_permission=="y" )
+    new_student = Student.new(age, name, parent_permission == 'y')
 
-    @people<<new_student
+    @people << new_student
 
     added_msg('Student')
     show_menu
@@ -162,11 +163,37 @@ class App
     print 'Specialization: '
     specialization = gets.chomp
 
-    new_teacher = Teacher.new(specialization , age , name)
+    new_teacher = Teacher.new(specialization, age, name)
 
-    @people<<new_teacher
+    @people << new_teacher
 
     added_msg('Teacher')
+    show_menu
+  end
+
+  def create_a_rental
+    clear
+    puts 'Select a book by number:'
+    @books.each_with_index { |book, idx| puts "  #{idx}) Title: #{book.title}, Author: #{book.author}" }
+    book_id = gets.chomp.to_i
+
+    puts
+
+    puts 'Select a person by number (not id):'
+    @people.each_with_index do |person, idx|
+      puts "  #{idx}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
+    person_id = gets.chomp.to_i
+
+    puts
+
+    print 'Date: '
+    date = gets.chomp.to_s
+
+    new_rental = Rental.new(date, @people[person_id], @books[book_id])
+    @rentals << new_rental
+
+    added_msg('Rent')
     show_menu
   end
 end
