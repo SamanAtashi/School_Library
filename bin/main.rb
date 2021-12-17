@@ -1,7 +1,7 @@
 require_relative 'corrector'
 # require_relative 'person.rb'
 require_relative 'student'
-# require_relative 'teacher.rb'
+require_relative 'teacher'
 # require_relative 'rentals.rb'
 require_relative 'books'
 # require_relative 'classroom.rb'
@@ -148,6 +148,25 @@ class App
     @people<<new_student
 
     added_msg('Student')
+    show_menu
+  end
+
+  def create_a_teacher
+    clear
+    print 'Age: '
+    age = gets.chomp.to_i
+
+    print 'Name: '
+    name = gets.chomp
+
+    print 'Specialization: '
+    specialization = gets.chomp
+
+    new_teacher = Teacher.new(specialization , age , name)
+
+    @people<<new_teacher
+
+    added_msg('Teacher')
     show_menu
   end
 end
