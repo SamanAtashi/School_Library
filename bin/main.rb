@@ -3,12 +3,17 @@ require_relative 'corrector'
 # require_relative 'student.rb'
 # require_relative 'teacher.rb'
 # require_relative 'rentals.rb'
-# require_relative 'books.rb'
+require_relative 'books'
 # require_relative 'classroom.rb'
 
 class App
+  def initialize
+    @books = []
+  end
+
   def clear
     system 'clear'
+    puts
   end
 
   def run
@@ -16,6 +21,12 @@ class App
     puts 'Welcome to School Library App!'
     puts
     show_menu
+  end
+
+  def added_msg(input)
+    clear
+    puts "#{input} created successfully ✅"
+    puts
   end
 
   def show_menu
@@ -42,12 +53,43 @@ class App
       list_rentals_by_person_id
     when '7'
       clear
-      puts
       puts 'Thank you for using this app!😀'
       puts
     else
-      puts 'Please enter a number between 1 and 7'
+      clear
+      puts '⚠️  Please enter a number between 1 and 7'
+      puts
+      show_menu
     end
+  end
+
+  def list_all_books
+    if @books.empty?
+      clear
+      puts 'There are no books yet! Add a book.'
+      puts
+    else
+      clear
+      @books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
+      puts
+    end
+
+    show_menu
+  end
+
+  def create_a_book
+    clear
+    print 'Title: '
+    title = gets.chomp
+
+    print 'Author: '
+    author = gets.chomp
+
+    new_book = Book.new(title, author)
+    @books << new_book
+
+    added_msg('Book')
+    show_menu
   end
 end
 
