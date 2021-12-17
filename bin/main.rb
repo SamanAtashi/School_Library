@@ -1,10 +1,13 @@
+# rubocop:enable Metrics/ClassLength
+# rubocop:enable Metrics/MethodLength
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Style/IdenticalConditionalBranches
+
 require_relative 'corrector'
-# require_relative 'person.rb'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'rentals'
 require_relative 'books'
-# require_relative 'classroom.rb'
 
 class App
   def initialize
@@ -35,10 +38,10 @@ class App
     options = ['List all books', 'List all people', 'Create a person', 'Create a book', 'Create a rental',
                'List all rentals for a given person id', 'Exit']
     options.each_with_index { |option, idx| puts "#{idx + 1} - #{option}" }
-    get_option
+    getting_option
   end
 
-  def get_option
+  def getting_option
     option = gets.chomp
     case option
     when '1'
@@ -214,7 +217,8 @@ class App
     puts 'Type "exit" to go back to menu.'
     loop do
       temp = gets.chomp.downcase
-      next unless temp === 'exit'
+      next unless temp == 'exit'
+
       puts
 
       clear
@@ -230,3 +234,7 @@ def main
 end
 
 main
+# rubocop:disable Metrics/ClassLength
+# rubocop:disable Metrics/MethodLength
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Style/IdenticalConditionalBranches
