@@ -1,4 +1,4 @@
 def clear
-    system 'clear'
-    puts
+  system 'clear'
+  puts
 end

@@ -1,19 +1,19 @@
 # rubocop:disable Metrics/MethodLength
-# rubocop:disable Metrics/ClassLength
 # rubocop:disable Metrics/CyclomaticComplexity
-# rubocop:disable Style/IdenticalConditionalBranches
 require './methods/list_all_book'
 require './methods/create_a_book'
 require './utilities/clearing_terminal'
+require './methods/choose_person'
 
 class App
   def initialize
     @list_of_books = []
     @list_all_books_class = List_All_Books_Class.new(@list_of_books)
     @create_book_class = Create_Book_Class.new(@list_of_books)
-
+    
     @rentals = []
     @people = []
+    @choose_type_of_person = Choose_Type_Of_Person_Class.new(@people)
   end
 
   def run
@@ -40,7 +40,7 @@ class App
       list_all_people
       show_menu
     when '3'
-      create_a_person
+      @choose_type_of_person.choose_a_person
       show_menu
     when '4'
       @create_book_class.creates_a_book
@@ -71,6 +71,4 @@ end
 
 main
 # rubocop:enable Metrics/MethodLength
-# rubocop:enable Metrics/ClassLength
 # rubocop:enable Metrics/CyclomaticComplexity
-# rubocop:enable Style/IdenticalConditionalBranches

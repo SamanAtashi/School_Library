@@ -1,4 +1,4 @@
-require_relative '../classes/actual_books.rb'
+require_relative '../classes/actual_books'
 require './utilities/clearing_terminal'
 require './methods/added_msg'
 
@@ -15,6 +15,6 @@ class Create_Book_Class
     author = gets.chomp
     new_book = Actual_Book.new(title, author)
     @books << new_book
-    added_msg("Book")
+    added_msg('Book')
   end
 end

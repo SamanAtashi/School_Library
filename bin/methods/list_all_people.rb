@@ -1,12 +1,10 @@
 def list_all_people
+  clear
   if @people.empty?
-    clear
     puts 'There are no people yet! Add a person.'
-    puts
   else
-    clear
     @people.map { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
-    puts
   end
+  puts
   show_menu
 end
