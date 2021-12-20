@@ -11,9 +11,10 @@ class App
     @list_all_books_class = List_All_Books_Class.new(@list_of_books)
     @create_book_class = Create_Book_Class.new(@list_of_books)
     
-    @rentals = []
     @people = []
     @choose_type_of_person = Choose_Type_Of_Person_Class.new(@people)
+
+    @rentals = []
   end
 
   def run
