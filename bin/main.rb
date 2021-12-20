@@ -4,6 +4,7 @@ require './methods/list_all_book'
 require './methods/create_a_book'
 require './utilities/clearing_terminal'
 require './methods/choose_person'
+require './methods/list_all_people'
 
 class App
   def initialize
@@ -11,8 +12,9 @@ class App
     @list_all_books_class = List_All_Books_Class.new(@list_of_books)
     @create_book_class = Create_Book_Class.new(@list_of_books)
     
-    @people = []
-    @choose_type_of_person = Choose_Type_Of_Person_Class.new(@people)
+    @list_of_people = []
+    @list_all_people_class = List_All_People_Class.new(@list_of_people)
+    @choose_type_of_person = Choose_Type_Of_Person_Class.new(@list_of_people)
 
     @rentals = []
   end
@@ -38,7 +40,7 @@ class App
       @list_all_books_class.lists_all_books
       show_menu
     when '2'
-      list_all_people
+      @list_all_people_class.lists_all_people
       show_menu
     when '3'
       @choose_type_of_person.choose_a_person
