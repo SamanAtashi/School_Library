@@ -4,6 +4,7 @@
 # rubocop:disable Style/IdenticalConditionalBranches
 require './methods/list_all_book'
 require './methods/create_a_book'
+require './utilities/clearing_terminal'
 
 class App
   def initialize
@@ -13,11 +14,6 @@ class App
 
     @rentals = []
     @people = []
-  end
-
-  def clear
-    system 'clear'
-    puts
   end
 
   def run
