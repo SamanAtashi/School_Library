@@ -7,10 +7,11 @@ require './methods/create_a_book'
 
 class App
   def initialize
+    @list_of_books = []
+    @list_all_books_class = List_All_Books_Class.new(@list_of_books)
+    @create_book_class = Create_Book_Class.new(@list_of_books)
+
     @rentals = []
-    @books = []
-    @list_books = Books.new(@books)
-    @create_book = Create_Book.new(@books)
     @people = []
   end
 
@@ -37,7 +38,7 @@ class App
     option = gets.chomp
     case option
     when '1'
-      print @list_books.list_all_books
+      @list_all_books_class.lists_all_books
       show_menu
     when '2'
       list_all_people
@@ -46,7 +47,7 @@ class App
       create_a_person
       show_menu
     when '4'
-      @create_book.create_a_book
+      @create_book_class.creates_a_book
       show_menu
     when '5'
       create_a_rental

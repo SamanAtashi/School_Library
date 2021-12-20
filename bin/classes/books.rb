@@ -1,4 +1,4 @@
-class Book
+class Actual_Book
   attr_accessor :title, :author, :rental
 
   def initialize(title, author)
