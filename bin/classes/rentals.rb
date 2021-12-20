@@ -1,4 +1,4 @@
-require_relative 'books'
+require_relative './actual_books'
 require_relative 'student'
 
 class Rental

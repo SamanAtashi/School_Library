@@ -5,18 +5,21 @@ require './methods/create_a_book'
 require './utilities/clearing_terminal'
 require './methods/choose_person'
 require './methods/list_all_people'
-
+require './methods/create_a_rental'
+require './methods/list_rentals_by_person'
 class App
   def initialize
     @list_of_books = []
     @list_all_books_class = List_All_Books_Class.new(@list_of_books)
     @create_book_class = Create_Book_Class.new(@list_of_books)
-    
+
     @list_of_people = []
     @list_all_people_class = List_All_People_Class.new(@list_of_people)
     @choose_type_of_person = Choose_Type_Of_Person_Class.new(@list_of_people)
 
-    @rentals = []
+    @list_of_rentals = []
+    @create_new_rental = Create_New_Rental_Class.new(@list_of_books, @list_of_people, @list_of_rentals)
+    @list_all_rentals = List_All_Rentals_Class.new(@list_of_rentals, @list_of_people)
   end
 
   def run
@@ -49,10 +52,10 @@ class App
       @create_book_class.creates_a_book
       show_menu
     when '5'
-      create_a_rental
+      @create_new_rental.create_a_rental
       show_menu
     when '6'
-      list_rentals_by_person_id
+      @list_all_rentals.list_rentals_by_person_id
       show_menu
     when '7'
       clear

@@ -1,15 +1,15 @@
 class List_All_People_Class
-    def initialize(people)
-        @people = people
-    end
+  def initialize(people)
+    @people = people
+  end
 
-    def lists_all_people
+  def lists_all_people
     clear
     if @people.empty?
-        puts 'There are no people yet! Add a person.'
+      puts 'There are no people yet! Add a person.'
     else
-        @people.map { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+      @people.map { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
     end
     puts
-    end
+  end
 end
