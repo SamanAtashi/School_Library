@@ -2,11 +2,12 @@
 # rubocop:disable Metrics/ClassLength
 # rubocop:disable Metrics/CyclomaticComplexity
 # rubocop:disable Style/IdenticalConditionalBranches
-
+require './methods/list_all_book'
 class App
   def initialize
     @rentals = []
     @books = []
+    @list_books = Books.new(@books)
     @people = []
   end
 
@@ -33,7 +34,7 @@ class App
     option = gets.chomp
     case option
     when '1'
-      list_all_books
+      print @list_books.list_all_books
     when '2'
       list_all_people
     when '3'
