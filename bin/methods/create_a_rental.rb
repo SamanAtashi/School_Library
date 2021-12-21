@@ -21,7 +21,7 @@ class Create_New_Rental_Class
     puts
     print 'Date: '
     date = gets.chomp.to_s
-    new_rental = Rental.new(date, @people[person_id], @books[book_id])
+    new_rental = Rental.new(date, @books[book_id], @people[person_id])
     @rentals << new_rental
     added_msg('Rent')
   end
