@@ -2,14 +2,14 @@ require_relative '../utilities/clearing_terminal'
 require_relative './create_a_teacher'
 require_relative './create_a_student'
 
-class Choose_Type_Of_Person_Class
+class ChooseTypeOfPersonClass
   def initialize(people)
     @people = people
-    @teacher_creation = Create_New_Teacher.new(@people)
-    @student_creation = Create_New_Student.new(@people)
+    @teacher_creation = CreateNewTeacher.new(@people)
+    @student_creation = CreateNewStudent.new(@people)
   end
 
-  def choose_a_person
+  def chooses_a_person
     clear
     print 'Do you want to create a student (1) or teacher (2): '
     loop do

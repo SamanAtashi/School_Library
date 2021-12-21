@@ -1,6 +1,6 @@
 require './utilities/clearing_terminal'
 
-class List_All_Books_Class
+class ListAllBooksClass
   def initialize(books)
     @books = books
   end

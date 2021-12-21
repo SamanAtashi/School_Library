@@ -1,10 +1,10 @@
-class List_All_Rentals_Class
+class ListAllRentalsClass
   def initialize(rentals, people)
     @rentals = rentals
     @people = people
   end
 
-  def list_rentals_by_person_id
+  def lists_rentals_by_person_id
     clear
 
     @people.each do |person|

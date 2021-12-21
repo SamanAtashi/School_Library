@@ -1,13 +1,13 @@
 require_relative '../classes/rentals'
 
-class Create_New_Rental_Class
+class CreateNewRentalClass
   def initialize(books, people, rentals)
     @books = books
     @people = people
     @rentals = rentals
   end
 
-  def create_a_rental
+  def creates_a_rental
     clear
     puts 'Select a book by number:'
     @books.each_with_index { |book, idx| puts "  #{idx}) Title: #{book.title}, Author: #{book.author}" }

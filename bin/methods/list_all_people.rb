@@ -1,4 +1,4 @@
-class List_All_People_Class
+class ListAllPeopleClass
   def initialize(people)
     @people = people
   end

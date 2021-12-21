@@ -1,6 +1,6 @@
 require_relative '../classes/teacher'
 
-class Create_New_Teacher
+class CreateNewTeacher
   def initialize(people)
     @people = people
   end

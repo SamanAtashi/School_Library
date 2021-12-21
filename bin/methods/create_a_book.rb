@@ -2,7 +2,7 @@ require_relative '../classes/actual_books'
 require './utilities/clearing_terminal'
 require './methods/added_msg'
 
-class Create_Book_Class
+class CreateBookClass
   def initialize(books)
     @books = books
   end
@@ -13,7 +13,7 @@ class Create_Book_Class
     title = gets.chomp
     print 'Author: '
     author = gets.chomp
-    new_book = Actual_Book.new(title, author)
+    new_book = ActualBook.new(title, author)
     @books << new_book
     added_msg('Book')
   end
