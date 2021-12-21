@@ -12,7 +12,7 @@ class List_All_Rentals_Class
     end
     puts
 
-    print 'ID of person: '
+    puts 'ID of person: '
     id = gets.chomp.to_i
     puts
     puts 'Rentals:'

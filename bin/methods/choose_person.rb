@@ -23,8 +23,7 @@ class Choose_Type_Of_Person_Class
         break
       else
         clear
-        puts 'Invalid input. Kindly type 1 or 2.'
-        puts
+        puts 'Invalid input. Kindly type 1 or 2.', "\n"
       end
     end
   end

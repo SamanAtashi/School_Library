@@ -25,8 +25,7 @@ class App
 
   def run
     clear
-    puts 'Welcome to School Library App!'
-    puts
+    puts 'Welcome to School Library App!',"\n"
     menu
   end
 
@@ -46,13 +45,11 @@ class App
       when '6' then @list_all_rentals.list_rentals_by_person_id
       when '7'
         clear
-        puts 'Thank you for using this app!😀'
-        puts
+        puts 'Thank you for using this app!😀', "\n"
         break
       else
         clear
-        puts '⚠️  Please enter a number between 1 and 7'
-        puts
+        puts '⚠️  Please enter a number between 1 and 7', "\n"
       end
     end
   end
