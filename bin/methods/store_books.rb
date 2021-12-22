@@ -1,8 +1,4 @@
-# json exists? 
-    # Yes --> write
-    # no --> create JSON -->write
 require 'json'
-
 
 class StoreBooksClass
     def initialize(arr)

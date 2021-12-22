@@ -2,12 +2,13 @@
 # rubocop:disable Metrics/CyclomaticComplexity
 require './methods/list_all_book'
 require './methods/create_a_book'
-require './utilities/clearing_terminal'
 require './methods/choose_person'
 require './methods/list_all_people'
 require './methods/create_a_rental'
 require './methods/list_rentals_by_person'
-require './methods/store_books'
+require './utilities/clearing_terminal'
+require './utilities/storing_data'
+
 
 class App
   def initialize
@@ -49,9 +50,8 @@ class App
       when '5' then @create_new_rental_class.creates_a_rental
       when '6' then @list_all_rentals_class.lists_rentals_by_person_id
       when '7'
-        puts "data storing starts..."
-        storing = StoreBooksClass.new(@list_of_books)
-        storing.stores_books
+        storing_data_class = StoringDataClass.new(@list_of_books)
+        storing_data_class.stores_data
 
         # clear
         # puts 'Thank you for using this app!😀', "\n"
