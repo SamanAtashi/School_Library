@@ -7,9 +7,14 @@ require './methods/choose_person'
 require './methods/list_all_people'
 require './methods/create_a_rental'
 require './methods/list_rentals_by_person'
+require './methods/store_books'
 
 class App
   def initialize
+    # temp = Retrieve_Book_Class.new
+    # temp.retrieves_books
+    # @list_of_books = temp.retrieves_books || []
+
     @list_of_books = []
     @list_all_books_class = ListAllBooksClass.new(@list_of_books)
     @create_book_class = CreateBookClass.new(@list_of_books)
@@ -44,9 +49,13 @@ class App
       when '5' then @create_new_rental_class.creates_a_rental
       when '6' then @list_all_rentals_class.lists_rentals_by_person_id
       when '7'
-        clear
-        puts 'Thank you for using this app!😀', "\n"
-        break
+        puts "data storing starts..."
+        storing = StoreBooksClass.new(@list_of_books)
+        storing.stores_books
+
+        # clear
+        # puts 'Thank you for using this app!😀', "\n"
+        # break
       else
         clear
         puts '⚠️  Please enter a number between 1 and 7', "\n"

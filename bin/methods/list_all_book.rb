@@ -10,7 +10,8 @@ class ListAllBooksClass
     if @books.empty?
       puts 'There are no books yet! Add a book.'
     else
-      @books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
+    #   @books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
+      @books.each { |book| puts book }
     end
     puts
   end
