@@ -9,12 +9,20 @@ class CreateBookClass
 
   def creates_a_book
     clear
-    print 'Title: '
-    title = gets.chomp
-    print 'Author: '
-    author = gets.chomp
+    title = ask_for_title
+    author = ask_for_author
     new_book = ActualBook.new(title, author)
     @books << new_book
     added_msg('Book')
+  end
+
+  def ask_for_title
+      print 'Title: '
+      gets.chomp
+  end
+
+  def ask_for_author
+      print 'Author: '
+      gets.chomp
   end
 end
