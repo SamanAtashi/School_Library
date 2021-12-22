@@ -14,16 +14,16 @@ class CreateNewTeacher
 
   def teacher_age
     print 'Age: '
-    age = gets.chomp.to_i
+    gets.chomp.to_i
   end
 
   def teacher_name
     print 'Name: '
-    name = gets.chomp
+    gets.chomp
   end
 
   def teacher_specialization
     print 'Specialization: '
-    specialization = gets.chomp
+    gets.chomp
   end
 end

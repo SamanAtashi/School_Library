@@ -14,16 +14,16 @@ class CreateNewStudent
 
   def student_age
     print 'Age: '
-    age = gets.chomp.to_i
+    gets.chomp.to_i
   end
 
   def student_name
     print 'Name: '
-    name = gets.chomp
+    gets.chomp
   end
 
   def student_permission
     print 'Has parent permission? [Y/N]: '
-    parent_permission = gets.chomp.downcase
+    gets.chomp.downcase
   end
 end
