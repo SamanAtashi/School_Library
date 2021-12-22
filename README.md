@@ -12,6 +12,11 @@ Invoke the method from the above files with `ruby <name>`
 
 ## Authors
 
+👤 **Isaí Céspedes Sánchez**
+
+- GitHub: [@Lordkaito](https://github.com/Lordkaito)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/isaicespedes/)
+
 👤 **SAMAN ATSHI**
 
 - Twitter: [@AtashiSaman](https://twitter.com/AtashiSaman)
