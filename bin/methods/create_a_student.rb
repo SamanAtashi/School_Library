@@ -7,14 +7,23 @@ class CreateNewStudent
 
   def create_a_student
     clear
-    print 'Age: '
-    age = gets.chomp.to_i
-    print 'Name: '
-    name = gets.chomp
-    print 'Has parent permission? [Y/N]: '
-    parent_permission = gets.chomp.downcase
-    new_student = Student.new(age, name, parent_permission == 'y')
+    new_student = Student.new(student_age, student_name, student_permission == 'y')
     @people << new_student
     added_msg('Student')
+  end
+
+  def student_age
+    print 'Age: '
+    age = gets.chomp.to_i
+  end
+
+  def student_name
+    print 'Name: '
+    name = gets.chomp
+  end
+
+  def student_permission
+    print 'Has parent permission? [Y/N]: '
+    parent_permission = gets.chomp.downcase
   end
 end
