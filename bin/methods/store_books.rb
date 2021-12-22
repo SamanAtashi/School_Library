@@ -10,12 +10,10 @@ class StoreBooksClass
     end
 
     def stores_books
-        p "start------------"
-        if File.exist?("../data/books.json")
-            File.write("../data/books.json", "datasss...", mode: "a")
-        else
-            "note abva"
+        data = JSON.generate(@arr_of_books)
+        if !File.exist?("./data/books.json")
+            File.new("./data/books.json", "w+")
         end
-        p "end--------------"
+        File.write("./data/books.json", data)
     end
 end
