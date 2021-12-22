@@ -17,12 +17,12 @@ class CreateBookClass
   end
 
   def ask_for_title
-      print 'Title: '
-      gets.chomp
+    print 'Title: '
+    gets.chomp
   end
 
   def ask_for_author
-      print 'Author: '
-      gets.chomp
+    print 'Author: '
+    gets.chomp
   end
 end
