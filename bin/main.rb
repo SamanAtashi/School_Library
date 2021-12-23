@@ -49,7 +49,7 @@ class App
       when '5' then @create_new_rental_class.creates_a_rental
       when '6' then @list_all_rentals_class.lists_rentals_by_person_id
       when '7'
-        storing_data_class = StoringDataClass.new(@list_of_books, @list_of_people)
+        storing_data_class = StoringDataClass.new(@list_of_books, @list_of_people, @list_of_rentals)
         storing_data_class.run
 
         # clear
