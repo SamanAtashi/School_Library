@@ -7,22 +7,21 @@ class CreateBookClass
     @books = books
   end
 
-  def creates_a_book
+  def creates_a_book(book_title, book_author)
     clear
-    title = ask_for_title
-    author = ask_for_author
+    title = book_title
+    author = book_author
     new_book = ActualBook.new(title, author)
     @books << new_book
     added_msg('Book')
   end
 
-  def ask_for_title
+  def ask_info
+    clear
     print 'Title: '
-    gets.chomp
-  end
-
-  def ask_for_author
+    title = gets.chomp
     print 'Author: '
-    gets.chomp
+    author = gets.chomp
+    creates_a_book(title, author)
   end
 end
