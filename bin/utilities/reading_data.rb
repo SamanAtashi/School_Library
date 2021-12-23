@@ -1,19 +1,16 @@
 require 'json'
-require './methods/create_a_book'
+require './utilities/read_books.rb'
 
 class ReadingDataClass
-  def initialize(books_arr)
-    @list_of_books = books_arr
+  def initialize(books,people)
+    @books = books
+    @people = people
   end
 
-  def retrieve_data
-    if File.exist?('./data/books.json')
-      file = File.read('./data/books.json')
-      books = JSON.parse(file)
-
-      create_book_new_class = CreateBookClass.new(@list_of_books)
-      books.each { |book| create_book_new_class.creates_a_book(book[0], book[1]) }
-      clear
+    def run
+        read_book_class = ReadBooksClass.new(@books)
+        read_book_class.retrieves_books
     end
-  end
+
+  
 end

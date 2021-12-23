@@ -27,8 +27,8 @@ class App
   def run
     clear
 
-    reading_data_class = ReadingDataClass.new(@list_of_books)
-    reading_data_class.retrieve_data
+    reading_data_class = ReadingDataClass.new(@list_of_books,@list_of_people)
+    reading_data_class.run
 
     puts 'Welcome to School Library App!', "\n"
     menu
