@@ -1,4 +1,3 @@
-# rubocop:disable Metrics/MethodLength
 # rubocop:disable Metrics/CyclomaticComplexity
 require './methods/list_all_book'
 require './methods/create_a_book'
@@ -8,15 +7,10 @@ require './methods/create_a_rental'
 require './methods/list_rentals_by_person'
 require './utilities/clearing_terminal'
 require './utilities/storing_data'
-require './methods/read'
-
+require './utilities/reading_data'
 
 class App
   def initialize
-    # temp = Retrieve_Book_Class.new
-    # temp.retrieves_books
-    # @list_of_books = temp.retrieves_books || []
-
     @list_of_books = []
     @list_all_books_class = ListAllBooksClass.new(@list_of_books)
     @create_book_class = CreateBookClass.new(@list_of_books)
@@ -32,8 +26,10 @@ class App
 
   def run
     clear
-    red = Reading.new(@list_of_books)
-    red.retrieve_data
+
+    reading_data_class = ReadingDataClass.new(@list_of_books)
+    reading_data_class.retrieve_data
+
     puts 'Welcome to School Library App!', "\n"
     menu
   end
@@ -53,10 +49,8 @@ class App
       when '5' then @create_new_rental_class.creates_a_rental
       when '6' then @list_all_rentals_class.lists_rentals_by_person_id
       when '7'
-        stor = Storing.new(@list_of_books)
-        stor.stores_data
-        # storing_data_class = StoringDataClass.new(@list_of_books)
-        # storing_data_class.stores_data
+        storing_data_class = StoringDataClass.new(@list_of_books)
+        storing_data_class.stores_book
 
         # clear
         # puts 'Thank you for using this app!😀', "\n"
@@ -75,5 +69,4 @@ def main
 end
 
 main
-# rubocop:enable Metrics/MethodLength
 # rubocop:enable Metrics/CyclomaticComplexity

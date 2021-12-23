@@ -1,7 +1,6 @@
 require_relative '../classes/actual_books'
 require './utilities/clearing_terminal'
 require './methods/added_msg'
-require './methods/stor'
 
 class CreateBookClass
   def initialize(books)
@@ -18,6 +17,7 @@ class CreateBookClass
   end
 
   def ask_info
+    clear
     print 'Title: '
     title = gets.chomp
     print 'Author: '
