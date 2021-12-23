@@ -10,14 +10,10 @@ class StorePeopleClass
     teachers = []
 
     @people.each do |person|
-      puts person.class
-      if person.class === 'Teacher'
-        puts 'it is a T'
-        # teachers.push([person.specialization, person.age, person.name])
-      end
-      if person.class === 'Student'
-        puts 'it is a S'
-        # students.push([person.age, person.name, person.parent_permission])
+      if defined?(person.specialization)
+        teachers.push([person.specialization, person.age, person.name])
+      else
+        students.push([person.age, person.name, person.parent_permission])
       end
     end
 
