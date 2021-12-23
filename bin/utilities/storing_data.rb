@@ -1,19 +1,17 @@
-require 'json'
+require_relative './store_books'
+require_relative './store_people'
 
 class StoringDataClass
-  def initialize(arr)
-    @books = arr
+  def initialize(books, people)
+    @books = books
+    @people = people
   end
 
-  def stores_book
-    data = []
-    @books.each do |book|
-      data.push([book.title, book.author])
-    end
-    puts data
-    File.new('./data/books.json', 'w+') unless File.exist?('./data/books.json')
-    File.open('./data/books.json', 'w') do |f|
-      f.write(data.to_json)
-    end
+  def run
+    store_books_class = StoreBooksClass.new(@books)
+    store_books_class.stores_books
+
+    store_people_class = StorePeopleClass.new(@people)
+    store_people_class.stores_people
   end
 end

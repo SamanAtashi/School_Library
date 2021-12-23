@@ -1,10 +1,9 @@
 require 'json'
 require './methods/create_a_book'
 
-
 class ReadingDataClass
-  def initialize(booksArr)
-    @list_of_books = booksArr
+  def initialize(books_arr)
+    @list_of_books = books_arr
   end
 
   def retrieve_data

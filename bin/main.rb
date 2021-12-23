@@ -49,8 +49,8 @@ class App
       when '5' then @create_new_rental_class.creates_a_rental
       when '6' then @list_all_rentals_class.lists_rentals_by_person_id
       when '7'
-        storing_data_class = StoringDataClass.new(@list_of_books)
-        storing_data_class.stores_book
+        storing_data_class = StoringDataClass.new(@list_of_books, @list_of_people)
+        storing_data_class.run
 
         # clear
         # puts 'Thank you for using this app!😀', "\n"

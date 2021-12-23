@@ -7,10 +7,10 @@ class CreateBookClass
     @books = books
   end
 
-  def creates_a_book(bookTitle, bookAuthor)
+  def creates_a_book(book_title, book_author)
     clear
-    title = bookTitle
-    author = bookAuthor
+    title = book_title
+    author = book_author
     new_book = ActualBook.new(title, author)
     @books << new_book
     added_msg('Book')
