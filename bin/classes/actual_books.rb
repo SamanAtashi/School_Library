@@ -6,4 +6,5 @@ class ActualBook
     @author = author
     @rental = []
   end
+
 end

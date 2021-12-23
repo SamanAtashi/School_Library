@@ -8,6 +8,7 @@ require './methods/create_a_rental'
 require './methods/list_rentals_by_person'
 require './utilities/clearing_terminal'
 require './utilities/storing_data'
+require './methods/read'
 
 
 class App
@@ -31,6 +32,8 @@ class App
 
   def run
     clear
+    red = Reading.new(@list_of_books)
+    red.retrieve_data
     puts 'Welcome to School Library App!', "\n"
     menu
   end
@@ -38,7 +41,7 @@ class App
   def menu
     loop do
       options = ['List all books', 'List all people', 'Create a person', 'Create a book', 'Create a rental',
-                 'List all rentals for a given person id', 'Exit']
+                 'List all rentals for a given person id', 'Save & Exit']
       options.each_with_index { |option, idx| puts "#{idx + 1} - #{option}" }
 
       option = gets.chomp
@@ -46,12 +49,14 @@ class App
       when '1' then @list_all_books_class.lists_all_books
       when '2' then @list_all_people_class.lists_all_people
       when '3' then @choose_type_of_person_class.chooses_a_person
-      when '4' then @create_book_class.creates_a_book
+      when '4' then @create_book_class.ask_info
       when '5' then @create_new_rental_class.creates_a_rental
       when '6' then @list_all_rentals_class.lists_rentals_by_person_id
       when '7'
-        storing_data_class = StoringDataClass.new(@list_of_books)
-        storing_data_class.stores_data
+        stor = Storing.new(@list_of_books)
+        stor.stores_data
+        # storing_data_class = StoringDataClass.new(@list_of_books)
+        # storing_data_class.stores_data
 
         # clear
         # puts 'Thank you for using this app!😀', "\n"
