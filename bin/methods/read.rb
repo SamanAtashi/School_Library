@@ -10,9 +10,9 @@ class Reading
     if File.exists?("./data/books.json")
       file = File.read("./data/books.json")
       books = JSON.parse(file)
-      @list_of_books = books
+
       create_book_new_class = CreateBookClass.new(@list_of_books)
-      books.each { |book| p book[0] }
+      books.each { |book| create_book_new_class.creates_a_book(book[0],book[1]) }
     end
   end
 end
