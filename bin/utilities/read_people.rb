@@ -19,15 +19,15 @@ class ReadPeopleClass
       clear
     end
 
-    if File.exist?('./data/teachers.json')
-      file = File.read('./data/teachers.json')
-      teachers = JSON.parse(file)
+    return unless File.exist?('./data/teachers.json')
 
-      teachers.each do |teacher|
-        create_teacher_class = Teacher.new(teacher[0], teacher[1], teacher[2])
-        @people << create_teacher_class
-      end
-      clear
+    file = File.read('./data/teachers.json')
+    teachers = JSON.parse(file)
+
+    teachers.each do |teacher|
+      create_teacher_class = Teacher.new(teacher[0], teacher[1], teacher[2])
+      @people << create_teacher_class
     end
+    clear
   end
 end

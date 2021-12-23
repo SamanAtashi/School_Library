@@ -1,4 +1,5 @@
 # rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/MethodLength
 require './methods/list_all_book'
 require './methods/create_a_book'
 require './methods/choose_person'
@@ -39,7 +40,6 @@ class App
       options = ['List all books', 'List all people', 'Create a person', 'Create a book', 'Create a rental',
                  'List all rentals for a given person id', 'Save & Exit']
       options.each_with_index { |option, idx| puts "#{idx + 1} - #{option}" }
-
       option = gets.chomp
       case option
       when '1' then @list_all_books_class.lists_all_books
@@ -51,10 +51,9 @@ class App
       when '7'
         storing_data_class = StoringDataClass.new(@list_of_books, @list_of_people, @list_of_rentals)
         storing_data_class.run
-
-        # clear
-        # puts 'Thank you for using this app!😀', "\n"
-        # break
+        clear
+        puts 'Thank you for using this app!😀', "\n"
+        break
       else
         clear
         puts '⚠️  Please enter a number between 1 and 7', "\n"
@@ -70,3 +69,4 @@ end
 
 main
 # rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/MethodLength
