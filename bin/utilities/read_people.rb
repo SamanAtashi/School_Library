@@ -1,20 +1,33 @@
 require 'json'
-require './methods/create_a_book'
+require './classes/student'
+require './classes/teacher'
 
 class ReadPeopleClass
-    def initialize(people)
-        @people = people
+  def initialize(people)
+    @people = people
+  end
+
+  def retrieves_people
+    if File.exist?('./data/students.json')
+      file = File.read('./data/students.json')
+      students = JSON.parse(file)
+
+      students.each do |st| 
+        create_student_class = Student.new(st[0],st[1],st[2])
+        @people << create_student_class
+      end
+      clear
     end
 
-    def retrieves_people
-        if File.exist?('./data/students.json')
-        file = File.read('./data/students.json')
-        students = JSON.parse(file)
+    if File.exist?('./data/teachers.json')
+      file = File.read('./data/teachers.json')
+      teachers = JSON.parse(file)
 
-        create_book_student = 
-        books.each { |book| create_book_new_class.creates_a_book(book[0], book[1]) }
-        clear
-        end
+      teachers.each do |tc| 
+        create_teacher_class = Teacher.new(tc[0],tc[1],tc[2])
+        @people << create_teacher_class
       end
-    
+      clear
+    end
+  end
 end

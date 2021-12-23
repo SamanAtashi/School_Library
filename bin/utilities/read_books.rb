@@ -2,11 +2,11 @@ require 'json'
 require './methods/create_a_book'
 
 class ReadBooksClass
-    def initialize(books)
-        @list_of_books = books
-    end
+  def initialize(books)
+    @list_of_books = books
+  end
 
-def retrieves_books
+  def retrieves_books
     if File.exist?('./data/books.json')
       file = File.read('./data/books.json')
       books = JSON.parse(file)
